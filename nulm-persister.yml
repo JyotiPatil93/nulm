@@ -1,0 +1,206 @@
+serviceMaps:
+   serviceName: National Urban Livelihood Mission
+   mappings:
+   -  version: 1.0
+      name: Device Source
+      description: Request -save sep-application
+      fromTopic: nulm-services-save-sepapplication
+      isTransaction: true      
+      queryMaps:
+      -  query: INSERT INTO public.nulm_sep_application_detail(application_uuid,application_id,application_status,nulm_application_id,name,gender,age,dob,adhar_no,mother_name,father_or_husband_name,occupation,address, contact, since_how_long_in_chandigarh, qualification, 
+                category, is_urban_poor,is_minority, is_handicapped, is_loan_from_bankinginstitute,is_repayment_made, bpl_no, minority, type_of_business_to_be_started,previous_experience, place_of_work, bank_details, no_of_family_members,project_cost, loan_amount, recommended_amount, recommended_by, representative_name, representative_address,tenant_id, is_active, created_by, created_time,last_modified_by, last_modified_time)VALUES (?,?,?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+         basePath: $.NULMSEPRequest
+         jsonMaps:
+         -  jsonPath: $.NULMSEPRequest.applicationUuid
+         -  jsonPath: $.NULMSEPRequest.applicationId
+         -  jsonPath: $.NULMSEPRequest.applicationStatus
+         -  jsonPath: $.NULMSEPRequest.nulmApplicationId
+         -  jsonPath: $.NULMSEPRequest.name
+         -  jsonPath: $.NULMSEPRequest.gender
+         -  jsonPath: $.NULMSEPRequest.age
+         -  jsonPath: $.NULMSEPRequest.dob
+            type: DATE         
+         -  jsonPath: $.NULMSEPRequest.adharNo
+         -  jsonPath: $.NULMSEPRequest.motherName
+         -  jsonPath: $.NULMSEPRequest.fatherOrHusbandName
+         -  jsonPath: $.NULMSEPRequest.occupation
+         -  jsonPath: $.NULMSEPRequest.address
+         -  jsonPath: $.NULMSEPRequest.contact
+         -  jsonPath: $.NULMSEPRequest.sinceHowLongInChandigarh
+         -  jsonPath: $.NULMSEPRequest.qualification
+         -  jsonPath: $.NULMSEPRequest.category
+         -  jsonPath: $.NULMSEPRequest.isUrbanPoor
+         -  jsonPath: $.NULMSEPRequest.isMinority
+         -  jsonPath: $.NULMSEPRequest.isHandicapped
+         -  jsonPath: $.NULMSEPRequest.isLoanFromBankinginstitute 
+         -  jsonPath: $.NULMSEPRequest.isRepaymentMade                          
+         -  jsonPath: $.NULMSEPRequest.bplNo
+         -  jsonPath: $.NULMSEPRequest.minority
+         -  jsonPath: $.NULMSEPRequest.typeOfBusinessToBeStarted
+         -  jsonPath: $.NULMSEPRequest.previousExperience
+         -  jsonPath: $.NULMSEPRequest.placeOfWork
+         -  jsonPath: $.NULMSEPRequest.bankDetails
+         -  jsonPath: $.NULMSEPRequest.noOfFamilyMembers
+         -  jsonPath: $.NULMSEPRequest.projectCost
+         -  jsonPath: $.NULMSEPRequest.loanAmount
+         -  jsonPath: $.NULMSEPRequest.recommendedAmount
+         -  jsonPath: $.NULMSEPRequest.recommendedBy
+         -  jsonPath: $.NULMSEPRequest.representativeName
+         -  jsonPath: $.NULMSEPRequest.representativeAddress
+         -  jsonPath: $.NULMSEPRequest.tenantId         
+         -  jsonPath: $.NULMSEPRequest.isActive
+         -  jsonPath: $.NULMSEPRequest.auditDetails.createdBy
+         -  jsonPath: $.NULMSEPRequest.auditDetails.createdTime
+         -  jsonPath: $.NULMSEPRequest.auditDetails.lastModifiedBy
+         -  jsonPath: $.NULMSEPRequest.auditDetails.lastModifiedTime
+      -  query: INSERT INTO public.nulm_sep_application_document(document_uuid, filestore_id, application_uuid, document_type, tenant_id, is_active, created_by, created_time, last_modified_by,last_modified_time)VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+         basePath: $.NULMSEPRequest.applicationDocument.*
+         jsonMaps:
+         -  jsonPath: $.NULMSEPRequest.*.documnetUuid
+         -  jsonPath: $.NULMSEPRequest.*.filestoreId
+         -  jsonPath: $.NULMSEPRequest.*.applicationUuid
+         -  jsonPath: $.NULMSEPRequest.*.documentType
+         -  jsonPath: $.NULMSEPRequest.*.tenantId
+         -  jsonPath: $.NULMSEPRequest.*.isActive
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.createdBy        
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.createdTime
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.lastModifiedBy
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.lastModifiedTime
+   -  version: 1.0
+      name: Device Source
+      description: Update sep-application
+      fromTopic: nulm-services-update-sepapplication
+      isTransaction: true      
+      queryMaps:
+      -  query: UPDATE public.nulm_sep_application_detail SET  nulm_application_id=?,application_status=?, name=?, gender=?, age=?, dob=?, adhar_no=?, mother_name=?, father_or_husband_name=?, occupation=?, address=?, contact=?, since_how_long_in_chandigarh=?, qualification=?, category=?, is_urban_poor=?, is_minority=?, is_handicapped=?, is_loan_from_bankinginstitute=?, is_repayment_made=?, bpl_no=?, minority=?, type_of_business_to_be_started=?, previous_experience=?, place_of_work=?, bank_details=?, no_of_family_members=?, project_cost=?, loan_amount=?, recommended_amount=?, recommended_by=?, representative_name=?, representative_address=?,  last_modified_by=?, last_modified_time=?
+                WHERE  application_uuid=? and tenant_id=? and is_active=?;
+         basePath: $.NULMSEPRequest
+         jsonMaps:
+         -  jsonPath: $.NULMSEPRequest.nulmApplicationId
+         -  jsonPath: $.NULMSEPRequest.applicationStatus
+         -  jsonPath: $.NULMSEPRequest.name
+         -  jsonPath: $.NULMSEPRequest.gender
+         -  jsonPath: $.NULMSEPRequest.age
+         -  jsonPath: $.NULMSEPRequest.dob
+            type: DATE         
+         -  jsonPath: $.NULMSEPRequest.adharNo
+         -  jsonPath: $.NULMSEPRequest.motherName
+         -  jsonPath: $.NULMSEPRequest.fatherOrHusbandName
+         -  jsonPath: $.NULMSEPRequest.occupation
+         -  jsonPath: $.NULMSEPRequest.address
+         -  jsonPath: $.NULMSEPRequest.contact
+         -  jsonPath: $.NULMSEPRequest.sinceHowLongInChandigarh
+         -  jsonPath: $.NULMSEPRequest.qualification
+         -  jsonPath: $.NULMSEPRequest.category
+         -  jsonPath: $.NULMSEPRequest.isUrbanPoor
+         -  jsonPath: $.NULMSEPRequest.isMinority
+         -  jsonPath: $.NULMSEPRequest.isHandicapped
+         -  jsonPath: $.NULMSEPRequest.isLoanFromBankinginstitute 
+         -  jsonPath: $.NULMSEPRequest.isRepaymentMade                          
+         -  jsonPath: $.NULMSEPRequest.bplNo
+         -  jsonPath: $.NULMSEPRequest.minority
+         -  jsonPath: $.NULMSEPRequest.typeOfBusinessToBeStarted
+         -  jsonPath: $.NULMSEPRequest.previousExperience
+         -  jsonPath: $.NULMSEPRequest.placeOfWork
+         -  jsonPath: $.NULMSEPRequest.bankDetails
+         -  jsonPath: $.NULMSEPRequest.noOfFamilyMembers
+         -  jsonPath: $.NULMSEPRequest.projectCost
+         -  jsonPath: $.NULMSEPRequest.loanAmount
+         -  jsonPath: $.NULMSEPRequest.recommendedAmount
+         -  jsonPath: $.NULMSEPRequest.recommendedBy
+         -  jsonPath: $.NULMSEPRequest.representativeName
+         -  jsonPath: $.NULMSEPRequest.representativeAddress
+         -  jsonPath: $.NULMSEPRequest.auditDetails.lastModifiedBy
+         -  jsonPath: $.NULMSEPRequest.auditDetails.lastModifiedTime
+         -  jsonPath: $.NULMSEPRequest.applicationUuid
+         -  jsonPath: $.NULMSEPRequest.tenantId         
+         -  jsonPath: $.NULMSEPRequest.isActive
+      -  query: INSERT INTO public.nulm_sep_application_document(document_uuid, filestore_id, application_uuid, document_type, tenant_id, is_active, created_by, created_time, last_modified_by,last_modified_time)VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (application_uuid,document_type,tenant_id) DO UPDATE SET filestore_id=?,document_type=?,last_modified_by=?,last_modified_time=? ;
+         basePath: $.NULMSEPRequest.applicationDocument.*
+         jsonMaps:
+         -  jsonPath: $.NULMSEPRequest.*.documnetUuid
+         -  jsonPath: $.NULMSEPRequest.*.filestoreId
+         -  jsonPath: $.NULMSEPRequest.*.applicationUuid
+         -  jsonPath: $.NULMSEPRequest.*.documentType
+         -  jsonPath: $.NULMSEPRequest.*.tenantId
+         -  jsonPath: $.NULMSEPRequest.*.isActive
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.createdBy        
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.createdTime
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.lastModifiedBy
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.lastModifiedTime       
+         -  jsonPath: $.NULMSEPRequest.*.filestoreId
+         -  jsonPath: $.NULMSEPRequest.*.documentType
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.lastModifiedBy
+         -  jsonPath: $.NULMSEPRequest.*.auditDetails.lastModifiedTime    
+   -  version: 1.0
+      name: Device Source
+      description: Update sep-application-status
+      fromTopic: nulm-services-update-sepapplication-status
+      isTransaction: true      
+      queryMaps:
+      -  query: UPDATE public.nulm_sep_application_detail SET nulm_application_id=?, application_status=? ,last_modified_by=?, last_modified_time=? WHERE  application_uuid=? AND tenant_id=? AND is_active='true' ;
+         basePath: $.NULMSEPRequest
+         jsonMaps:
+         -  jsonPath: $.NULMSEPRequest.nulmApplicationId
+         -  jsonPath: $.NULMSEPRequest.applicationStatus
+         -  jsonPath: $.NULMSEPRequest.auditDetails.lastModifiedBy
+         -  jsonPath: $.NULMSEPRequest.auditDetails.lastModifiedTime
+         -  jsonPath: $.NULMSEPRequest.applicationUuid
+         -  jsonPath: $.NULMSEPRequest.tenantId    
+   -  version: 1.0
+      name: Device Source
+      description: Request -save smid-application
+      fromTopic: nulm-services-save-smidapplication
+      isTransaction: true      
+      queryMaps:
+      -  query: INSERT INTO public.nulm_smid_application_detail(application_uuid,application_id, nulm_application_id, application_status, name, position_level, gender, dob, date_of_opening_account, adhar_no,mother_name, father_or_husband_name, address, phone_no, mobile_no, qualification, email_id, is_urban_poor, is_minority, is_pwd, is_street_vendor, is_homeless, is_insurance, bpl_no, minority, caste, ward_no, name_as_per_adhar, 
+                adhar_acknowledgement_no, insurance_through, document_attachemnt, account_no, bank_name, branch_name, account_opened_through, ro_type, tenant_id, is_active, created_by, created_time, last_modified_by, last_modified_time)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+         basePath: $.NULMSMIDRequest
+         jsonMaps:
+         -  jsonPath: $.NULMSMIDRequest.applicationUuid
+         -  jsonPath: $.NULMSMIDRequest.applicationId
+         -  jsonPath: $.NULMSMIDRequest.nulmApplicationId
+         -  jsonPath: $.NULMSMIDRequest.applicationStatus
+         -  jsonPath: $.NULMSMIDRequest.name
+         -  jsonPath: $.NULMSMIDRequest.positionLevel
+         -  jsonPath: $.NULMSMIDRequest.gender
+         -  jsonPath: $.NULMSMIDRequest.dob
+            type: DATE
+         -  jsonPath: $.NULMSMIDRequest.dateOfOpeningAccount
+            type: DATE
+         -  jsonPath: $.NULMSMIDRequest.adharNo
+         -  jsonPath: $.NULMSMIDRequest.motherName
+         -  jsonPath: $.NULMSMIDRequest.fatherOrHusbandName
+         -  jsonPath: $.NULMSMIDRequest.address
+         -  jsonPath: $.NULMSMIDRequest.phoneNo
+         -  jsonPath: $.NULMSMIDRequest.mobileNo
+         -  jsonPath: $.NULMSMIDRequest.qualification
+         -  jsonPath: $.NULMSMIDRequest.emailId
+         -  jsonPath: $.NULMSMIDRequest.isUrbanPoor
+         -  jsonPath: $.NULMSMIDRequest.isMinority
+         -  jsonPath: $.NULMSMIDRequest.isPwd
+         -  jsonPath: $.NULMSMIDRequest.isStreetVendor
+         -  jsonPath: $.NULMSMIDRequest.isHomeless
+         -  jsonPath: $.NULMSMIDRequest.isInsurance
+         -  jsonPath: $.NULMSMIDRequest.bplNo
+         -  jsonPath: $.NULMSMIDRequest.minority
+         -  jsonPath: $.NULMSMIDRequest.caste
+         -  jsonPath: $.NULMSMIDRequest.wardNo
+         -  jsonPath: $.NULMSMIDRequest.nameAsPerAdhar
+         -  jsonPath: $.NULMSMIDRequest.adharAcknowledgementNo
+         -  jsonPath: $.NULMSMIDRequest.insuranceThrough
+         -  jsonPath: $.NULMSMIDRequest.documentAttachemnt
+         -  jsonPath: $.NULMSMIDRequest.accountNo
+         -  jsonPath: $.NULMSMIDRequest.bankName
+         -  jsonPath: $.NULMSMIDRequest.branchName
+         -  jsonPath: $.NULMSMIDRequest.accountOpenedThrough
+         -  jsonPath: $.NULMSMIDRequest.roType
+         -  jsonPath: $.NULMSMIDRequest.tenantId
+         -  jsonPath: $.NULMSMIDRequest.isActive
+         -  jsonPath: $.NULMSMIDRequest.auditDetails.createdBy
+         -  jsonPath: $.NULMSMIDRequest.auditDetails.createdTime 
+         -  jsonPath: $.NULMSMIDRequest.auditDetails.lastModifiedBy
+         -  jsonPath: $.NULMSMIDRequest.auditDetails.lastModifiedTime
+                                       
