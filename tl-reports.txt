@@ -1,1 +1,1 @@
-pm-services=https://raw.githubusercontent.com/extrapre/rainmaker-customisation/master/configs/reports/configs/pm-reports.yml
+pgr-services=https://raw.githubusercontent.com/JyotiPatil93/rainmaker-customisation/master/configs/reports/configs/pgr-reports.yml
