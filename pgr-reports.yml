@@ -52,62 +52,62 @@ ReportDefinitions:
   - name: department
     label: reports.rainmaker-pgr.department
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: servicecode
     label: reports.rainmaker-pgr.servicecode
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: complaintNo
     label: reports.rainmaker-pgr.complaintNo
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: date
     label: reports.rainmaker-pgr.date
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: name
     label: reports.rainmaker-pgr.name
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: phone
     label: reports.rainmaker-pgr.phone
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: address
     label: reports.rainmaker-pgr.address
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: locality
     label: reports.rainmaker-pgr.locality
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: landmark
     label: reports.rainmaker-pgr.landmark
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: description
     label: reports.rainmaker-pgr.description
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: lastassignedto
     label: reports.rainmaker-pgr.lastassignedto
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: status
     label: reports.rainmaker-pgr.status
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: autoescalated
     label: reports.rainmaker-pgr.autoescalated
@@ -117,28 +117,28 @@ ReportDefinitions:
   - name: lastactiondate
     label: reports.rainmaker-pgr.lastactiondate
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false  
   - name: slahours
     label: reports.rainmaker-pgr.slahours
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false 
   - name: source
     label: reports.rainmaker-pgr.source
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   - name: complaintraisedby
     label: reports.rainmaker-pgr.complaintraisedby
     type: string
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     total: false
   searchParams:
   - name: fromDate
     label: reports.rainmaker-pgr.datefrom
     type: epoch
-    source: eg_pgr_service
+    source: eg_pgr_discription_report
     isMandatory: false
     searchClause: AND eg_pgr_discription_report.createdtime >= $fromDate
   - name: toDate
