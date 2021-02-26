@@ -38,7 +38,7 @@ ReportDefinitions:
   externalService:
   - entity: $.MdmsRes.RAINMAKER-PGR.ServiceDefs
     apiURL: https://egov-uat.chandigarhsmartcity.in/egov-mdms-service/v1/_get?moduleName=RAINMAKER-PGR&masterName=ServiceDefs&tenantId=$tenantId
-    keyOrder: serviceCode,department,slaHours
+    keyOrder: serviceCode,department,slaHours 
     tableName: tbl_dept   
   sourceColumns:
   - name: department
