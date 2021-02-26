@@ -140,13 +140,11 @@ ReportDefinitions:
     type: epoch
     source: eg_pgr_discription_report
     isMandatory: false
-    searchClause: AND eg_pgr_discription_report.createdtime >= $fromDate
   - name: toDate
     label: reports.rainmaker-pgr.dateto
     type: epoch
     source: eg_pgr_service
     isMandatory: false
-    searchClause: AND eg_pgr_discription_report.createdtime <= $toDate
   query: |
     SELECT lastassignedto, servicecode, locality, complaintno, date, name, 
        phone, landmark, address, description, complaintraisedby, slahours, 
@@ -159,6 +157,7 @@ ReportDefinitions:
         eg_pgr_service.servicecode)::integer / 24), ' days') ELSE CONCAT(((SELECT deptmap.slaHours FROM (VALUES tbl_dept) AS
         deptmap(serviceCode, department, slaHours) WHERE deptmap.serviceCode = eg_pgr_service.servicecode)::integer / 24) - 
         ((((select extract(epoch from now())) * 1000) - createdtime)::bigint/86400000), ' days remaining')END) END)) as slaHours FROM public.eg_pgr_discription_report
+         AND eg_pgr_discription_report.createdtime >= $fromDate  AND eg_pgr_discription_report.createdtime <= $toDate
         ORDER BY eg_pgr_discription_report.createdtime asc
 
 - reportName: StateSourceReport
