@@ -150,7 +150,7 @@ ReportDefinitions:
        phone, landmark, address, description, complaintraisedby, slahours, 
        lastactiondate, status, autoescalated, department, servicerequestid, 
        tenantid, createdtime  FROM public.eg_pgr_discription_report
-         where eg_pgr_discription_report.createdtime >= $fromDate  AND eg_pgr_discription_report.createdtime <= $toDate
+       where eg_pgr_discription_report.createdtime >= $fromDate  AND eg_pgr_discription_report.createdtime <= $toDate
 
 - reportName: StateSourceReport
   summary: Source of complaints across tenants
