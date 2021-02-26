@@ -134,23 +134,25 @@ ReportDefinitions:
     type: string
     source: eg_pgr_discription_report
     total: false
-  searchParams:
+  searchParams: 
   - name: fromDate
     label: reports.rainmaker-pgr.datefrom
     type: epoch
     source: eg_pgr_discription_report
-    isMandatory: false
+    isMandatory: true
+    searchClause: AND eg_pgr_discription_report.createdtime >= $fromDate
   - name: toDate
     label: reports.rainmaker-pgr.dateto
     type: epoch
-    source: eg_pgr_service
-    isMandatory: false
+    source: eg_pgr_discription_report
+    isMandatory: true
+    searchClause: AND eg_pgr_discription_report.createdtime <= $toDate
   query: |
     SELECT lastassignedto, servicecode, locality, complaintno, date, name, 
        phone, landmark, address, description, complaintraisedby, slahours, 
        lastactiondate, status, autoescalated, department, servicerequestid, 
        tenantid, createdtime  FROM public.eg_pgr_discription_report
-       where eg_pgr_discription_report.createdtime >= $fromDate  AND eg_pgr_discription_report.createdtime <= $toDate
+       
 
 - reportName: StateSourceReport
   summary: Source of complaints across tenants
