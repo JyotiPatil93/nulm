@@ -158,7 +158,6 @@ ReportDefinitions:
         deptmap(serviceCode, department, slaHours) WHERE deptmap.serviceCode = eg_pgr_service.servicecode)::integer / 24) - 
         ((((select extract(epoch from now())) * 1000) - createdtime)::bigint/86400000), ' days remaining')END) END)) as slaHours FROM public.eg_pgr_discription_report
          AND eg_pgr_discription_report.createdtime >= $fromDate  AND eg_pgr_discription_report.createdtime <= $toDate
-        ORDER BY eg_pgr_discription_report.createdtime asc
 
 - reportName: StateSourceReport
   summary: Source of complaints across tenants
