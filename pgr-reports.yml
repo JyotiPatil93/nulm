@@ -151,7 +151,7 @@ ReportDefinitions:
     SELECT lastassignedto, servicecode, locality, complaintno, date, name, 
        phone, landmark, address, description, complaintraisedby, slahours, 
        lastactiondate, status, autoescalated, department, servicerequestid, 
-       tenantid, createdtime  FROM public.eg_pgr_discription_report WHERE 
+       tenantid, createdtime  FROM public.eg_pgr_discription_report WHERE  
        
 
 - reportName: StateSourceReport
