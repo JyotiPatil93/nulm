@@ -140,7 +140,7 @@ ReportDefinitions:
     type: epoch
     source: eg_pgr_discription_report
     isMandatory: true
-    searchClause: AND eg_pgr_discription_report.createdtime >= $fromDate
+    searchClause:  eg_pgr_discription_report.createdtime >= $fromDate
   - name: toDate
     label: reports.rainmaker-pgr.dateto
     type: epoch
@@ -151,7 +151,7 @@ ReportDefinitions:
     SELECT lastassignedto, servicecode, locality, complaintno, date, name, 
        phone, landmark, address, description, complaintraisedby, slahours, 
        lastactiondate, status, autoescalated, department, servicerequestid, 
-       tenantid, createdtime  FROM public.eg_pgr_discription_report
+       tenantid, createdtime  FROM public.eg_pgr_discription_report WHERE 
        
 
 - reportName: StateSourceReport
