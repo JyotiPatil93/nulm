@@ -55,7 +55,7 @@ ReportDefinitions:
     type: epoch
     source: eg_hc_service_request
     isMandatory: true
-    searchClause:  WHERE  eg_hc_service_request.createdtime >= $fromDate
+    searchClause:    eg_hc_service_request.createdtime >= $fromDate
   - name: toDate
     label: report.hc.toDate
     type: epoch
@@ -63,4 +63,4 @@ ReportDefinitions:
     isMandatory: true
     searchClause: AND eg_hc_service_request.createdtime <= $toDate	
   query: |
-    SELECT service_request_id,createdtime as requestDate, owner_name, service_type, servicerequestsubtype,  locality,  service_request_status as status,   description, current_assignee  FROM public.eg_hc_service_request;
+    SELECT service_request_id,createdtime as requestDate, owner_name, service_type, servicerequestsubtype,  locality,  service_request_status as status,   description, current_assignee  FROM public.eg_hc_service_request WHERE;
