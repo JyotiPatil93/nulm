@@ -55,7 +55,7 @@ ReportDefinitions:
     type: epoch
     source: eg_hc_service_request
     isMandatory: true
-    searchClause:  WHERE eg_hc_service_request.createdtime >= $fromDate
+    searchClause:  WHERE  eg_hc_service_request.createdtime >= $fromDate
   - name: toDate
     label: report.hc.toDate
     type: epoch
