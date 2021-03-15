@@ -51,4 +51,3 @@ ReportDefinitions:
     total: true	
   query: |
     SELECT service_request_id,createdtime as requestDate, owner_name, service_type, servicerequestsubtype,  locality,  service_request_status,   description, current_assignee  FROM public.eg_hc_service_request;
-
