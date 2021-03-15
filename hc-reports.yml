@@ -40,14 +40,27 @@ ReportDefinitions:
     source: hc
     total: false
   - name: description
-    label: report.hc.receipt.description
+    label: report.hc.description
     type: string
     source: hc
     total: true
   - name: current_assignee
-    label: report.hc.receipt.current_assignee
+    label: report.hc.current_assignee
     type: string
     source: hc
     total: true	
+  searchParams: 
+  - name: fromDate
+    label: report.hc.fromDate
+    type: epoch
+    source: eg_hc_service_request
+    isMandatory: true
+    searchClause:   eg_hc_service_request.createdtime >= $fromDate
+  - name: toDate
+    label: report.hc.toDate
+    type: epoch
+    source: eg_hc_service_request
+    isMandatory: true
+    searchClause: AND eg_hc_service_request.createdtime <= $toDate	
   query: |
     SELECT service_request_id,createdtime as requestDate, owner_name, service_type, servicerequestsubtype,  locality,  service_request_status as status,   description, current_assignee  FROM public.eg_hc_service_request;
