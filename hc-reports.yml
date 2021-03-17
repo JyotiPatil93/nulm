@@ -49,43 +49,6 @@ ReportDefinitions:
     type: string
     source: hc
     total: true	
-  searchParams: 
-  - name: fromDate
-    label: report.hc.fromDate
-    type: epoch
-    source: eg_hc_service_request  
-  - name: toDate
-    label: report.hc.toDate
-    type: epoch
-    source: eg_hc_service_request
-  - name: serviceRequestId
-    label: report.hc.serviceRequestId
-    type: string
-    source: eg_hc_service_request  
-  - name: serviceType
-    label: report.hc.serviceType
-    type: string
-    source: eg_hc_service_request	
-  - name: serviceRequestSubType
-    label: report.hc.serviceRequestSubType
-    type: string
-    source: eg_hc_service_request  
-  - name: ownerName
-    label: report.hc.ownerName
-    type: string
-    source: eg_hc_service_request
-  - name: serviceRequestStatus
-    label: report.hc.serviceRequestStatus
-    type: string
-    source: eg_hc_service_request  
-  - name: locality
-    label: report.hc.locality
-    type: string
-    source: eg_hc_service_request   
-  - name: assigner
-    label: report.hc.assigner
-    type: string
-    source: eg_hc_service_request    
   query: |
     SELECT service_request_id,createdtime as requestDate, owner_name, service_type, servicerequestsubtype,  locality,  service_request_status as status,   description,(case when current_assignee ~ '^[0-9\.]+$' then (SELECT username as name
       FROM eg_user  where id::varchar=current_assignee) else current_assignee end )  FROM public.eg_hc_service_request 
