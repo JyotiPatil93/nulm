@@ -131,14 +131,20 @@ ReportDefinitions:
     label: reports.rainmaker-pgr.datefrom
     type: epoch
     source: eg_pgr_discription_report
-    isMandatory: true
+    isMandatory: flase
     searchClause:  AND eg_pgr_discription_report.createdtime >= $fromDate
   - name: toDate
     label: reports.rainmaker-pgr.dateto
     type: epoch
     source: eg_pgr_discription_report
-    isMandatory: true
+    isMandatory: flase
     searchClause: AND eg_pgr_discription_report.createdtime <= $toDate
+  - name: toDate
+    label: reports.rainmaker-pgr.complaintno
+    type: String
+    source: eg_pgr_discription_report
+    isMandatory: flase
+    searchClause: AND eg_pgr_discription_report.complaintno = $complaintNo   
   query: |
     SELECT *,regexp_replace(servicecode, '([a-z])([A-Z])', '\1 \2','g') AS servicecode,(select (CASE WHEN status in('resolved','rejected','closed') or slaendtime is null
       or slaendtime=0 then '' ELSE (CASE WHEN (((SELECT deptmap.slaHours FROM (VALUES tbl_dept) AS deptmap(serviceCode, department, slaHours) WHERE
