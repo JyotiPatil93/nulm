@@ -1,1 +1,1 @@
-pgr-services=https://raw.githubusercontent.com/JyotiPatil93/nulm/master/hc-reports.yml
+pgr-services=https://raw.githubusercontent.com/JyotiPatil93/nulm/master/pgr-reports.yml
