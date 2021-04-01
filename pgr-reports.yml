@@ -299,13 +299,7 @@ ReportDefinitions:
     type: epoch
     source: eg_pgr_service
     isMandatory: false
-    searchClause: AND eg_pgr_service.createdtime <= $toDate
-  - name: complaintNo
-    label: reports.rainmaker-pgr.complaintno
-    type: String
-    source: eg_pgr_discription_report
-    isMandatory: false
-    searchClause: AND eg_pgr_discription_report.complaintno LIKE $complaintNo       
+    searchClause: AND eg_pgr_service.createdtime <= $toDate      
   query: |
     SELECT (SELECT deptmap.department FROM (VALUES tbl_dept) AS deptmap(serviceCode, department, slaHours) WHERE deptmap.serviceCode = eg_pgr_service.servicecode) AS department, 
     regexp_replace(eg_pgr_service.servicecode, '([a-z])([A-Z])', '\1 \2','g') AS servicecode, 
