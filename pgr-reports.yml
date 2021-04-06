@@ -253,7 +253,7 @@ ReportDefinitions:
     source: eg_pgr_discription_report
     total: false
   searchParams: 
-   - name: complaintNo
+  - name: complaintNo
     label: reports.rainmaker-pgr.complaintno
     type: String
     source: eg_pgr_discription_report
