@@ -326,11 +326,11 @@ ReportDefinitions:
   moduleName: rainmaker-pgr
   externalService:
   - entity: $.MdmsRes.RAINMAKER-PGR.ServiceDefs
-    apiURL: https://egov-uat.chandigarhsmartcity.in/egov-mdms-service/v1/_get?moduleName=RAINMAKER-PGR&masterName=ServiceDefs&tenantId=$tenantId
+    apiURL: http://egov-mdms-service:8080/egov-mdms-service/v1/_get?moduleName=RAINMAKER-PGR&masterName=ServiceDefs&tenantId=$tenantId
     keyOrder: serviceCode,department,slaHours
     tableName: tbl_dept
   - entity: $.MdmsRes.RAINMAKER-PGR.Sector
-    apiURL: https://egov-uat.chandigarhsmartcity.in/egov-mdms-service/v1/_get?moduleName=RAINMAKER-PGR&masterName=Sector&tenantId=$tenantId
+    apiURL: http://egov-mdms-service:8080/egov-mdms-service/v1/_get?moduleName=RAINMAKER-PGR&masterName=Sector&tenantId=$tenantId
     keyOrder: name,code
     tableName: tbl_sector
   sourceColumns:
@@ -423,7 +423,7 @@ ReportDefinitions:
     INNER JOIN eg_user ON eg_pgr_service.accountid = eg_user.id::VARCHAR 
     INNER JOIN eg_pgr_address ON eg_pgr_service.addressid = eg_pgr_address.uuid
     WHERE eg_pgr_service.status = 'assigned' 
-    AND servicerequestid IN (SELECT DISTINCT businesskey FROM eg_pgr_action WHERE status = 'assigned' AND "when" IN (select max("when") FROM eg_pgr_action WHERE assignee NOTNULL GROUP BY businesskey) AND assignee =$userId) 
+    AND servicerequestid IN (SELECT DISTINCT businesskey FROM eg_pgr_action WHERE status = 'assigned' AND "when" IN (select max("when") FROM eg_pgr_action WHERE assignee NOTNULL GROUP BY businesskey) AND assignee = $userid) 
   orderby: ORDER BY eg_pgr_service.createdtime asc
   
 - reportName: EscalationOfficerReport
