@@ -136,7 +136,7 @@ ReportDefinitions:
     type: string
     source: eg_pgr_discription_report
     total: false
-  - name: comments
+  - name: comment
     label: reports.rainmaker-pgr.comments
     type: string
     source: eg_pgr_discription_report
