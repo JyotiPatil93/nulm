@@ -126,6 +126,21 @@ ReportDefinitions:
     type: string
     source: eg_pgr_discription_report
     total: false
+  - name: feedback
+    label: reports.rainmaker-pgr.feedback
+    type: string
+    source: eg_pgr_discription_report
+    total: false
+  - name: rating
+    label: reports.rainmaker-pgr.rating
+    type: string
+    source: eg_pgr_discription_report
+    total: false
+   - name: comments
+    label: reports.rainmaker-pgr.comments
+    type: string
+    source: eg_pgr_discription_report
+    total: false  
   searchParams: 
   - name: fromDate
     label: reports.rainmaker-pgr.datefrom
